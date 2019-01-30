@@ -6,7 +6,11 @@ class CatRentalRequest < ApplicationRecord
   belongs_to :cat
 
   def overlapping_requests
-    CatRentalRequest.where("(start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?) AND id != ?", start_date, end_date, start_date, end_date, id ? id : "NULL")
+    if id
+      CatRentalRequest.where("(start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?) AND id != ?", start_date, end_date, start_date, end_date, id)
+    else
+      CatRentalRequest.where("(start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?) AND id != ?", start_date, end_date, start_date, end_date)
+    end
   end
   
   def overlapping_approved_requests
