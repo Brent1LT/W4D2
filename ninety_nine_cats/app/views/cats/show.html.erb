@@ -1,0 +1,36 @@
+
+
+<table>
+<thead>
+  <tr>
+    <th>My name is <%= @cat.name %>!</th>
+  </tr>
+</thead>
+  <tbody>
+    <tr>
+      <td>name:</td> 
+      <td><%= @cat.name %></td>
+    </tr>
+    <tr>
+      <td>I was born on:</td> 
+      <td><%= @cat.birth_date %></td>
+    </tr>
+    <tr>
+      <td>age:</td>
+      <td><%= @cat.age %></td>
+    </tr>
+    <tr>
+      <td>color:</td>
+      <td><%= @cat.color %></td>
+    </tr>
+    <tr>
+      <td>sex:</td>
+      <td><%= @cat.sex %></td>
+    </tr>
+    <tr>
+      <td>desc:</td>
+      <td><%= @cat.description %></td>
+    </tr>
+  </tbody>
+</table>
+<a href="<%= cats_url %>">See ALL the cats!</a>
